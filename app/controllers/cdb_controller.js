@@ -19,7 +19,7 @@ const CdbController = {
     create: async(req, res, next) => {
         if(req.headers.token == TOKEN){
           try {
-            await Produto.create({
+            await Cdb.create({
               nome: req.body.nome, 
               valor_taxa: req.body.valor_taxa, 
               data_compra: req.body.data_compra
