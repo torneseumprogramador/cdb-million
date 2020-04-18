@@ -14,7 +14,7 @@ const CdbController = {
             }
             
         }
-        return res.status(401).json({error: "Acesso negado API cdb-Token header inválido"})    
+        return res.status(401).json({error: "Acesso negado API cdb-Token inválido"})    
     },
     create: async(req, res, next) => {
         if(req.headers.token == TOKEN){
