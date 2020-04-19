@@ -11,6 +11,10 @@ const Cdb = mongoose.model('cdb',{
         required: true,
         message: "A taxa de juros é mensal"      
     },
+    vencimento: {
+        type: Date,
+        required:true,
+    },
     data_compra: {
         type: Date,
         required: true,
