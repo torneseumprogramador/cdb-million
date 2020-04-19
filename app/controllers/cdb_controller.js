@@ -21,7 +21,8 @@ const CdbController = {
           try {
             await Cdb.create({
               nome: req.body.nome, 
-              valor_taxa: req.body.valor_taxa, 
+              valor_taxa: req.body.valor_taxa,
+              vencimento: req.body.vencimento,
               data_compra: req.body.data_compra
             });
             res.status(204).send({});
@@ -43,6 +44,7 @@ const CdbController = {
                 _id: req.params.cdb_id}, {
                  nome: req.body.nome,
                  valor_taxa: req.body.valor_taxa,
+                 vencimento: req.body.vencimento,
                  data_compra: req.body.data_compra,
                 })
             return res.status(204).send(`Alterando com o id ${req.params.cdb_id}`)
