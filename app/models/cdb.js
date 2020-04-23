@@ -18,7 +18,7 @@ const Cdb = mongoose.model('cdb',{
     data_compra: {
         type: Date,
         required: true,
-        default: Date.now,
+        default: Date.now(),
         immutable: true
     }
    
