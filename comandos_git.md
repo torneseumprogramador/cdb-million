@@ -6,6 +6,12 @@ git init
 
 git clone /caminho/para/o/repositório
 
+## criar uma  branch 
+git branch nome_da_branch
+
+## mudar de  branch 
+git checkout nome_da_branch
+
 ## enviar modificações para branch
 
 git add .

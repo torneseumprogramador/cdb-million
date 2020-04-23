@@ -22,8 +22,8 @@ const CdbController = {
             await Cdb.create({
               nome: req.body.nome, 
               valor_taxa: req.body.valor_taxa,
-              vencimento: req.body.vencimento,
-              data_compra: req.body.data_compra
+              vencimento: req.body.vencimento
+              
             });
             res.status(204).send({});
           }
@@ -44,10 +44,10 @@ const CdbController = {
                 _id: req.params.cdb_id}, {
                  nome: req.body.nome,
                  valor_taxa: req.body.valor_taxa,
-                 vencimento: req.body.vencimento,
-                 data_compra: req.body.data_compra,
+                 vencimento: req.body.vencimento
+                 
                 })
-            return res.status(204).send(`Alterando com o id ${req.params.cdb_id}`)
+            return res.status(204).send(`Alterando com o id ${req.params._id}`)
           }
           catch(err){
             console.log(err)
@@ -60,7 +60,7 @@ const CdbController = {
       delete: async(req, res, next) => {
         if(req.headers.token === TOKEN){
           try{
-            await Cdb.findByIdAndDelete(req.params.cdb_id)
+            await Cdb.findByIdAndDelete(req.params._id)
             return res.status(204).send({});
           }
           catch(err){
