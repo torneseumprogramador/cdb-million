@@ -20,13 +20,9 @@ describe("CdbController", () =>{
             nome: 'Nome-B', 
             valor_taxa: 20,
             vencimento: '2022-12-01'
-            
           });
-
         });
-        
       });
-   
 
       describe('DELETE/cdb/_id.json - Deve deletar um  registro ',() =>{
       it('Deve retornar o Statuscode 200 ', async(done) =>{
@@ -41,14 +37,29 @@ describe("CdbController", () =>{
         
         expect(response.status).toBe(204);
         done();
-     });
-
-      it("'Deve retornar uma lista de cdb", async (done) => {
-        const resposta = await request.get("/cdb.json").set({'token': TOKEN})
-        expect(resposta.status).toBe(200)
-        done();
+       });
+      }); 
+      describe('GET/cdb/_id.json - Deve buscar os  registro ',() =>{
+        it("'Deve retornar uma lista de cdb", async (done) => {
+          const resposta = await request.get("/cdb.json").set({'token': TOKEN})
+          expect(resposta.status).toBe(200)
+          done();
+        });
       });
-     
-    });
+
+      describe('CREATE/cdb/_id.json -  ',() =>{
+        it("'Deve criar um registro", async (done) => {
+
+          const body = {
+            nome: "Brener Bruno",
+            valor_taxa: 1.53,
+            vencimento: "2020-04-17"
+          }
+
+          const resposta = await request.post("/cdb.json").set({'token': TOKEN}).send(body)
+          expect(resposta.status).toBe(204)
+          done();
+        });
+      });
   }); 
     
