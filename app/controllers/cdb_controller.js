@@ -61,7 +61,7 @@ const CdbController = {
                  vencimento: req.body.vencimento
                  
                 })
-            return res.status(204).send(`Alterando com o id ${req.params._id}`)
+            return res.status(200).send(`Alterando com o id ${req.params._id}`)
           }
           catch(err){
             console.log(err)
