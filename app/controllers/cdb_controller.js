@@ -16,6 +16,20 @@ const CdbController = {
         }
         return res.status(401).json({error: "Acesso negado API cdb-Token inválido"})    
     },
+
+    findbyid: async(req, res, next) => {
+      if(req.headers.token === TOKEN){
+        try{
+          const cdb = await Cdb.findById(req.params._id)
+          
+          return res.status(204).send(cdb);
+        }
+        catch(err){
+         return res.status(401).send(err)
+        }
+      }
+      return res.status(401).json({error: "Acesso não autorizado"})
+    },
     create: async(req, res, next) => {
         if(req.headers.token == TOKEN){
           try {

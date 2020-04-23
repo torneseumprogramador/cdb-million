@@ -4,7 +4,7 @@ const Cdb = mongoose.model('cdb',{
     nome: {
         type: String,
         required: true,
-        unique: true
+         unique: true
     },
     valor_taxa: {
         type: Number,

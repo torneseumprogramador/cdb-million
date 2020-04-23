@@ -9,6 +9,7 @@ describe("CdbController", () =>{
     beforeEach(async ()=> {
 
       await Cdb.deleteMany({}, async(err, removed) => {
+      
         await Cdb.create({
             nome: 'Nome-A', 
             valor_taxa: 15,
@@ -61,5 +62,23 @@ describe("CdbController", () =>{
           done();
         });
       });
+
+
+
+      describe('GET/cdb/_id.json -  ',() =>{
+        it("'Deve  um registro pelo Id", async (done) => {
+
+          const cdb = await Cdb.create({
+            nome: "Nome-Rosangela-Teste findById", 
+            valor_taxa: 10,
+            vencimento: '2020-12-12'
+            
+        })  
+        const response = await request.get(`/cdb/${cdb._id}.json`).set('token',TOKEN);
+          expect(response.status).toBe(204)
+          done();
+        });
+      });
+
   }); 
     
