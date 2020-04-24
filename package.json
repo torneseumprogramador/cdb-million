@@ -1,0 +1,25 @@
+{
+  "name": "cdb-million",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "jasmine",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.9.9",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "debug": "~2.6.9",
+    "jasmine": "*",
+    "nodemon": "^2.0.2",
+    "supertest": "*"
+  }
+}
