@@ -17,12 +17,12 @@ const CdbController = {
         return res.status(401).json({error: "Acesso negado API cdb-Token inválido"})    
     },
 
-    findbyid: async(req, res, next) => {
+    findById: async(req, res, next) => {
       if(req.headers.token === TOKEN){
         try{
           const cdb = await Cdb.findById(req.params._id)
           
-          return res.status(204).send(cdb);
+          return res.status(200).send(cdb);
         }
         catch(err){
          return res.status(401).send(err)
@@ -46,7 +46,7 @@ const CdbController = {
           }
         }
         else {
-          res.status(401).send(`Acesso negado, token inválido`)
+          res.status(401).send({error: `Acesso negado, token inválido`})
         }
       },
 
@@ -61,7 +61,7 @@ const CdbController = {
                  vencimento: req.body.vencimento
                  
                 })
-            return res.status(200).send(`Alterando com o id ${req.params._id}`)
+            return res.status(200).send({message: `Alterado cdb de id ${req.params._id}`})
           }
           catch(err){
             console.log(err)

@@ -73,7 +73,7 @@ describe("CdbController", () =>{
             
         })  
         const response = await request.get(`/cdb/${cdb._id}.json`).set('token',TOKEN);
-          expect(response.status).toBe(204)
+          expect(response.status).toBe(200)
           done();
         });
       });
